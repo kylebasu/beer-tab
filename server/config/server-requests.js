@@ -28,6 +28,7 @@ exports.signupUser = function(req, res) {
           }
         });
       } else {
+        res.json({token: "username already exists"});
         console.log('Error: Account already exists');
         res.status(418).end();
       }

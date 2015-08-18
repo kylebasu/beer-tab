@@ -55,6 +55,7 @@
         <form ng-submit="signUp()" name="signup" novalidate>
           <ul class="ul-list">
             <li><input type="text" required class="input" placeholder="Username" name="username" ng-model='user.username' ng-minlength='3' ng-maxlength='20'/><span class="icon"><i class="fa fa-user"></i></span></li>
+            <small class="error" ng-show="usernameExists">Sorry, that name is already taken.</small>
             <li><input type="password" required class="input" placeholder="Password" name="password" ng-model='user.password' ng-minlength='8' ng-maxlength='20'/><span class="icon"><i class="fa fa-lock"></i></span></li>
 
             <li><input type="checkbox" id="check1" ng-model="unchecked"> <label for="check1">I am over 21 years of age.</label></li>
