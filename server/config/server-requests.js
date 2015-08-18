@@ -160,3 +160,16 @@ if(receiver === sender){
       });
   }
 };
+
+exports.sendLoc = function(req, res){
+  var username = req.body.user;
+  User.findOne({ username: username})
+    .exec(function(err, user){
+      if(!user){
+        console.log("User doesn't exist")
+      }else{
+        console.log(user);
+        console.log(req.body.lat, req.body.lon);
+      }
+    })
+};
