@@ -26,8 +26,13 @@ auth.controller('AuthCtrl', function ($scope, $rootScope, $window, $location, Au
   $scope.signUp = function () {
     AuthService.signup($scope.user)
       .then(function (token) {
-        $window.localStorage.setItem('com.beer-tab', token);
-        $location.path('/main');
+        //handle logic here like above.
+        if (token === "username already exists"){
+          $scope.usernameExists = true;
+        } else {
+          $window.localStorage.setItem('com.beer-tab', token);
+          $location.path('/main');
+        }
       })
       .catch(function (error) {
         console.error(error);
