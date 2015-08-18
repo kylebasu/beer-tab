@@ -6,13 +6,13 @@
   <table ng-table class="table">
       <tr ng-repeat="user in network | orderBy:'username'">
           <td class="username-col" data-title="'Username'">{{user.username}}</td>
-          <td class="beer-tab-col" data-title="'Tab'">{{user.tab}}</td>
+          <td class="beer-tab-col" data-title="'Tab'"><div ng-class="user.tab > 0 ? 'greenbeer' : 'redbeer'">{{user.tab}}</div></td>
           <td class="pay-btn-col"> 
             <button class="pay-btn" ng-hide="user.tab <= 0" ng-click="sendBeer(user.username)">Got Beer</button>
             <button class="pay-btn" ng-hide="user.tab > 0" ng-click="sendBeer(user.username)">Send Beer</button>
          </td>
       </tr>
-  </table>
+  </table>-
 
   <div class="login">
   <button class="add-friend-btn" ng-hide="clicked" ng-click="clicked = true; toUser = '';">Add New Friend</button>

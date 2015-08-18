@@ -325,6 +325,15 @@ table tr:hover td {
 .beer-tab-col {
   text-align: center;
 }
+
+.redbeer {
+  color: red;
+}
+
+.greenbeer {
+  color: green;
+}
+
 .username-col {
   width: 150px;
 }
