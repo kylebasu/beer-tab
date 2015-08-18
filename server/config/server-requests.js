@@ -54,6 +54,7 @@ exports.loginUser = function(req, res) {
 
           } else {
             console.log('Error: Incorrect password');
+            res.json({token: "password incorrect"});
             res.status(418).end();
           }
         });
