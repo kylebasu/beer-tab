@@ -9,7 +9,10 @@ auth.controller('AuthCtrl', function ($scope, $rootScope, $window, $location, Au
       .then(function (token) {
         if (token === "password incorrect"){
           $scope.passwordIncorrect = true;
-          //do some stuff
+          $scope.usernameNotFound = false;
+        } else if (token === "username not found"){
+          $scope.usernameNotFound = true;
+          $scope.passwordIncorrect = false;
         } else {
           $window.localStorage.setItem('com.beer-tab', token);
           $location.path('/main');

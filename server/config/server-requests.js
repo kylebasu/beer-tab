@@ -42,6 +42,8 @@ exports.loginUser = function(req, res) {
     .exec(function(err, user) {
 
       if (!user) {
+        console.log("Error: Username not found");
+        res.json({token: "username not found"});
         res.status(418).end();
       } else {
         var savedPassword = user.password;
