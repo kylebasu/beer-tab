@@ -1,7 +1,7 @@
 var main = angular.module('beer-tab.main', ['beer-tab.services', 'angular-jwt', 'ngTable']);
 
 
-main.controller('MainCtrl', function ($scope, $window, beerPmt, jwtHelper, AuthService, getTable, util) {
+main.controller('MainCtrl', function ($scope, $window, beerPmt, jwtHelper, AuthService, getTable, util, location) {
   // Retrieve token from localStorage
   $scope.jwt = $window.localStorage.getItem('com.beer-tab');
   // Decode token (this uses angular-jwt. notice jwtHelper)
@@ -39,6 +39,21 @@ main.controller('MainCtrl', function ($scope, $window, beerPmt, jwtHelper, AuthS
       }
     }
   };
+
+  $scope.sendLoc = function(user){
+    if(navigator.geolocation){
+      navigator.geolocation.watchPosition(function(position){
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+        console.log('check your server', lat, lon);
+        location.locPost(user, [lat, lon]);
+      });
+    }else{
+      console.log('you goofed');
+    }
+  }
+
+  $scope.sendLoc($scope.user);
 
 
 });
