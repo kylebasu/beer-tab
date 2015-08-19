@@ -19,7 +19,7 @@
             <li><input type="text" required class="input" placeholder="Username" name="username" ng-model='user.username' ng-minlength='3' ng-maxlength='20'/><span class="icon"><i class="fa fa-user"></i></span></li>
 
             <div class="error" ng-show="usernameNotFound">
-              <small class="error">Username does not exist. <a href="">Sign up?</a></small>
+              <small class="error">Username does not exist. <label for="signup" style="cursor: pointer; color: #09C">Sign up?</label></small>
             </div>
 
             <li><input type="password" required class="input" placeholder="Password" name="password" ng-model='user.password' ng-minlength='8' ng-maxlength='20'/><span class="icon"><i class="fa fa-lock"></i></span></li>
