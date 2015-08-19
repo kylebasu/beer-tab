@@ -53,7 +53,12 @@ main.controller('MainCtrl', function ($scope, $window, beerPmt, jwtHelper, AuthS
     }
   }
 
+  $scope.getLoc = function (user) {
+    location.locGet(user);
+  }
+
   $scope.sendLoc($scope.user);
+  $scope.getLoc($scope.user);
 
 
 });

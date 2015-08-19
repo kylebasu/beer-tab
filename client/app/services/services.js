@@ -98,7 +98,17 @@ angular.module('beer-tab.services', [])
       data: {lat: loc[0], lon: loc[1], user: user}
     });
   };
-  return {locPost: locPost};
+  var locGet = function(user){
+    return $http({
+      method: 'POST',
+      url: '/location',
+      data: {user: user}
+    })
+    .then(function (resp) {
+      console.log(resp.data);
+    });
+  }
+  return {locPost: locPost, locGet: locGet};
 });
 
 
