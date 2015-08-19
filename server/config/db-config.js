@@ -39,27 +39,27 @@ User.prototype.comparePassword = function(attemptedPassword, savedPassword, call
 module.exports = User;
 
 var user1 = new User({
-  username: 'kyle',
+  username: 'mack',
   password: 'argleBargle1',
-  network: {'stvnwu': -1, 'Vandres': 2, 'mKurrel': 0, 'dRosson': 3}
+  network: {'trevor': -3, 'kyle': 0, 'jimmy': 1}
 });
 
 var user2 = new User({
   username: 'trevor',
   password: 'argleBargle2',
-  network: {'iemanatemire': 1, 'Vandres': 0, 'mKurrel': 2, 'dRosson': -3}
+  network: {'mack': 3, 'kyle': 2, 'jimmy': 0}
 });
 
 var user3 = new User({
-  username: 'mack',
+  username: 'kyle',
   password: 'argleBargle3',
-  network: {'stvnwu': 0, 'iemanatemire': -2, 'mKurrel': 1, 'dRosson': 0}
+  network: {'mack': 0, 'trevor': -2, 'jimmy': -4}
 });
 
 var user4 = new User({
   username: 'jimmy',
   password: 'argleBargle4',
-  network: {'stvnwu': -2, 'Vandres': -1, 'iemanatemire': 0, 'dRosson': 3}
+  network: {'mack': -1, 'trevor': 0, 'kyle': 4}
 });
 
 user1.save( function(err, newUser) { 
