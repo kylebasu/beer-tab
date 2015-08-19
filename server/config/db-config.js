@@ -10,7 +10,9 @@ mongoose.connect('mongodb://localhost:27017/beer-tab-db');
 var schema = mongoose.Schema ({
   username: { type: String, index: { unique: true } },
   password: String,
-  network: { type: mongoose.Schema.Types.Mixed , default: {} }
+  network: { type: mongoose.Schema.Types.Mixed , default: {} },
+  latitude: Number,
+  longitude: Number
 });
 
 // Hash pashword before saving to database

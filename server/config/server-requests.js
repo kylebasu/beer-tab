@@ -172,8 +172,64 @@ exports.sendLoc = function(req, res){
       if(!user){
         console.log("User doesn't exist")
       }else{
-        console.log(user);
-        console.log(req.body.lat, req.body.lon);
+        //console.log(user);
+        //console.log(req.body.lat, req.body.lon);
+        User.update({_id: user._id}, {$set: {latitude: req.body.lat, longitude: req.body.lon}}, function(err){
+          if(err) return err;
+        });
       }
     })
 };
+
+exports.getLoc = function(req, res){
+  var username = req.body.user;
+  //console.log('hi', req.body)
+  var arr = []
+  var newObj = {}
+  User.findOne({username: username})
+    .exec(function(err, user){
+      for(var i in user.network){
+        arr.push(i);
+      }
+      User.find({})
+        .exec(function(err, results){
+          var newResult = results.filter(function(item){
+            if(arr.indexOf(item.username) !== -1){
+              return true
+            }else{
+              return false
+            }
+          });
+          for(var k = 0; k < newResult.length; k++){
+            newObj[newResult[k].username] = [newResult[k].latitude, newResult[k].longitude]
+          }
+          var JSONobj = JSON.stringify(newObj);
+          res.writeHead(200);
+          res.end(JSONobj);
+        })
+    })
+  // var locationArr = {};
+  // User.findOne({username: username})
+  //   .exec(function(err, user){
+  //     if(!user){
+  //       console.log("User doesn't exist")
+  //     }else{
+  //       for(var i in user.network){
+  //         User.findOne({username: i})
+  //           .exec(function(err, users){
+  //             if(!users){
+  //               console.log("User doesn't exist!!")
+  //             }else{
+  //               //console.log(users)
+  //               locationArr[i] = [users.latitude, users.longitude]
+  //               console.log(locationArr);
+  //             }
+  //           })
+  //       }
+  //     }
+  //   }).then(function(err){
+  //     var JSONobj = JSON.stringify(locationArr)
+  //       res.writeHead(200);
+  //       res.end(JSONobj);
+  //   });
+}
