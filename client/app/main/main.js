@@ -61,10 +61,6 @@ main.controller('MainCtrl', function ($scope, $window, beerPmt, jwtHelper, AuthS
   $scope.getLoc($scope.user);
 
   $scope.getProfile = function(username){
-    var mack = profile.profile(username);
-    console.log(mack + "should be mack.jpg");
-    // var ourUser = profile.profile(username);
-    // console.log(ourUser);
     return 'assets/profiles/' + profile.profile(username);
   }
 

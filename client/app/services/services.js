@@ -122,7 +122,7 @@ angular.module('beer-tab.services', [])
         data: {username: username}
       })
       .then(function(resp){
-        console.log(resp.data + " is the data");
+        // console.log(resp.data + " is the data");
         stringArr.push(resp.data);
         return resp.data;
       });
