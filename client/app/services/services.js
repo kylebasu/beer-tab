@@ -109,7 +109,29 @@ angular.module('beer-tab.services', [])
     });
   }
   return {locPost: locPost, locGet: locGet};
-});
+})
+.factory('profile', function ($http){
+  var searchedArr = [];
+  var stringArr = [];
+  var profile = function (username) {
+    if (searchedArr.indexOf(username) === -1){
+      searchedArr.push(username);
+      $http({
+        method: 'POST',
+        url: '/profile',
+        data: {username: username}
+      })
+      .then(function(resp){
+        console.log(resp.data + " is the data");
+        stringArr.push(resp.data);
+        return resp.data;
+      });
+    } else {
+      return stringArr[searchedArr.indexOf(username)];
+    }
+  }
+  return {profile: profile};
+})
 
 
 
