@@ -1,7 +1,7 @@
 
 <div class='container' data-ng-controller="MainCtrl"> 
 
-  <h1> Hello, {{user}}!</h1>
+  <h1> Hello, {{ user }}!</h1>
 
   <table ng-table class="table">
       <tr ng-repeat="user in network | orderBy:'username'">
@@ -25,4 +25,11 @@
       </ul>
     </form>
   </div>
+  <div map-lazy-load="http://maps.google.com/maps/api/js">
+  <map center="37.7837667, -122.4092151" zoom="13">
+    <div ng-repeat='positions in marker'>
+      <marker position="[37.783727, -122.40923429999998]"></marker>
+    </div>
+  </map>
+</div>
 </div>

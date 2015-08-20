@@ -38,7 +38,10 @@ module.exports = function(grunt) {
           'bower_components/ng-table/dist/ng-table.min.js',
           'bower_components/angular-jwt/dist/angular-jwt.min.js',
           'bower_components/angular-ui-router/release/angular-ui-router.min.js',
-          'bower_components/bootstrap/dist/js/bootstrap.min.js'
+          'bower_components/bootstrap/dist/js/bootstrap.min.js',
+          'bower_components/ngmap/build/scripts/ng-map.min.js',
+          "http://maps.google.com/maps/api/js",
+          'http://rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.min.js'
         ],
         dest: 'client/dist/lib.min.js',
       }
