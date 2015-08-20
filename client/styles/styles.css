@@ -409,3 +409,6 @@ table tr:hover td {
   width: 40px;
 }
 
+#map {
+  height: 400px;
+}
