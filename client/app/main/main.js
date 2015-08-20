@@ -1,4 +1,4 @@
-var main = angular.module('beer-tab.main', ['beer-tab.services', 'angular-jwt', 'ngTable']);
+var main = angular.module('beer-tab.main', ['beer-tab.services', 'angular-jwt', 'ngTable', 'ngMap']);
 
 
 main.controller('MainCtrl', function ($scope, $window, beerPmt, jwtHelper, AuthService, getTable, util, location) {
@@ -27,11 +27,11 @@ main.controller('MainCtrl', function ($scope, $window, beerPmt, jwtHelper, AuthS
   //the updated information
   $scope.sendBeer = function (user) {
 
-    if(user){
+    if (user){
       console.log('sendBeer called', user);
       if(AuthService.isAuth()) {
         beerPmt.newIOU(user)
-        .then(function(derp){
+        .then(function (derp) {
           console.log(derp); 
           $scope.network = util.toArr(derp.network);
           
@@ -40,25 +40,26 @@ main.controller('MainCtrl', function ($scope, $window, beerPmt, jwtHelper, AuthS
     }
   };
 
-  $scope.sendLoc = function(user){
-    if(navigator.geolocation){
+  $scope.sendLoc = function (user) {
+    if (navigator.geolocation) {
       navigator.geolocation.watchPosition(function(position){
         var lat = position.coords.latitude;
         var lon = position.coords.longitude;
         console.log('check your server', lat, lon);
         location.locPost(user, [lat, lon]);
       });
-    }else{
+    } else {
       console.log('you goofed');
     }
-  }
+  };
 
   $scope.getLoc = function (user) {
-    location.locGet(user);
-  }
+      $scope.marker = location.locGet(user);
+  };
 
   $scope.sendLoc($scope.user);
   $scope.getLoc($scope.user);
+  //$scope.GenerateMapMarkers();
 
 
 });
