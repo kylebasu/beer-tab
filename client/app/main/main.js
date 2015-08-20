@@ -1,7 +1,7 @@
 var main = angular.module('beer-tab.main', ['beer-tab.services', 'angular-jwt', 'ngTable']);
 
 
-main.controller('MainCtrl', function ($scope, $window, beerPmt, jwtHelper, AuthService, getTable, util, location) {
+main.controller('MainCtrl', function ($scope, $window, beerPmt, jwtHelper, AuthService, getTable, util, location, profile) {
   // Retrieve token from localStorage
   $scope.jwt = $window.localStorage.getItem('com.beer-tab');
   // Decode token (this uses angular-jwt. notice jwtHelper)
@@ -60,5 +60,8 @@ main.controller('MainCtrl', function ($scope, $window, beerPmt, jwtHelper, AuthS
   $scope.sendLoc($scope.user);
   $scope.getLoc($scope.user);
 
+  $scope.getProfile = function(username){
+    return 'assets/profiles/' + profile.profile(username);
+  }
 
 });

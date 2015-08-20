@@ -232,4 +232,14 @@ exports.getLoc = function(req, res){
   //       res.writeHead(200);
   //       res.end(JSONobj);
   //   });
+};
+
+exports.profile = function(req, res){
+  var username = req.body.username;
+  User.findOne({username: username})
+    .exec(function(err, user){
+      // console.log(user.profile);
+      res.status(201).send(user.profile);
+      res.end();
+    })
 }

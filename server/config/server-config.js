@@ -27,6 +27,7 @@ app.post('/login', handler.loginUser);
 app.post('/signup', handler.signupUser);
 app.post('/tabs', handler.toTabs);
 app.post('/location', handler.sendLoc);
+app.post('/profile', handler.profile);
 
 // Export server app instance
 module.exports = app;
