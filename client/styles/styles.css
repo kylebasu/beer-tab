@@ -398,8 +398,11 @@ table tr:hover td {
 }
 
 .profilepic {
+  background-size: 40px 40px;
   border-radius: 50%;
   height: 40px;
   width: 40px;
+  float: left;
+  z-index: 1;
 }
 
