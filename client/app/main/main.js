@@ -34,7 +34,6 @@ main.controller('MainCtrl', function ($scope, $window, beerPmt, jwtHelper, AuthS
       if(AuthService.isAuth()) {
         beerPmt.newIOU(user)
         .then(function (derp) {
-          //console.log(derp); 
           $scope.network = util.toArr(derp.network);
           
         });
@@ -102,6 +101,7 @@ main.controller('MainCtrl', function ($scope, $window, beerPmt, jwtHelper, AuthS
   // $timeout(function(){
   //   $scope.GenerateMapMarkers(/*$scope.marker*/);
   // });
+
 
   $scope.getProfile = function(username){
     return 'assets/profiles/' + profile.profile(username);

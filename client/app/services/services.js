@@ -114,7 +114,6 @@ angular.module('beer-tab.services', [])
         newObj.long = resp.data[i][1];
         newArr.push(newObj);
       }
-      console.log(newArr);
       return newArr;
     });
   }
