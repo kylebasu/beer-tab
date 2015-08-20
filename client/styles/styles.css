@@ -335,7 +335,7 @@ table tr:hover td {
 }
 
 .username-col {
-  width: 150px;
+  width: 100px;
 }
 
 .beer-tab-col {
@@ -398,10 +398,14 @@ table tr:hover td {
 }
 
 .profilepic {
+  margin: 0 auto;
   background-size: 40px 40px;
   border-radius: 50%;
   height: 40px;
   width: 40px;
-  float: left;
+}
+
+.profile-col {
+  width: 40px;
 }
 
